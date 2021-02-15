@@ -42,12 +42,7 @@ const PostSchema = new Schema({
     required: true
   },
 
-//accept the challenge
-  _accept:{
-    type: Schema.Types.ObjectId,
-    ref: "Accept"
-  }
 })
 
-const Post = mongoose.model("Post", PostSchema);
-module.exports = Post;
+const Posts = mongoose.model("Posts", PostSchema);
+module.exports = Posts;
