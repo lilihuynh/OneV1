@@ -11,13 +11,13 @@ function Nav() {
           height="50"
           className="d-inline-block align-top"
         />
-        {" "} One V1
       </a>
-      
+
+      <h3 style={{ textAlign: "center" }}>ONE V1</h3>
+
       <a href="#" type="button" class="btn btn-default navbar-btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
         <span class="glyphicon"></span>Logout
       </a>
-
     </nav>
   );
 }
