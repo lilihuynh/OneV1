@@ -20,14 +20,20 @@ const PostSchema = new Schema({
     required: true,
   },
 
-  battleDate:{
+  battleDate: {
     type: Date,
     default: Date.now
   },
 
-  body:{
+  body: {
     type: String,
     required: true
+  },
+
+  screenshot:{
+    type: String,
+    default: "none"
+
   },
 
   bettingPoint: {
@@ -35,14 +41,23 @@ const PostSchema = new Schema({
     required: true
   },
 
-//relate to user who post this post
-  _author:{
+  //relate to user who post this post
+  author: {
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true
   },
 
+  //the user who accept the challenge
+
+  acceptedBy:[
+    {type: Schema.Types.ObjectId,
+    ref: "User",
+    }
+
+  ]
+
 })
 
-const Posts = mongoose.model("Posts", PostSchema);
-module.exports = Posts;
+const Post = mongoose.model("Post", PostSchema);
+module.exports = Post;

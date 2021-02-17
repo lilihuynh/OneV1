@@ -23,6 +23,12 @@ const UserSchema = new Schema({
   currentPoint: {
     type: Number,
   },
+
+  post:[{
+    type: Schema.Types.ObjectId,
+    ref: "Post"
+  }],
+
 });
 
 const User = mongoose.model("User", UserSchema);
