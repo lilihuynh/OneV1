@@ -11,6 +11,7 @@ function DeleteBtn(props) {
   );
 }
 
+
 const STYLES = ['btn--primary', 'btn--outline'];
 
 const SIZES = ['btn--medium', 'btn--large'];
@@ -39,3 +40,6 @@ export const Button = ({
     </link>
   )
 };
+
+export default DeleteBtn;
+

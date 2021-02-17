@@ -1,3 +1,4 @@
+
 :root {
   --primary: #fff;
 }
@@ -39,6 +40,7 @@
   color: #242424;
   transition: all 0.3s ease-out;
 }
+
 .delete-btn {
   float: right;
   color: #e74944;
