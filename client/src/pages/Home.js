@@ -40,6 +40,7 @@ function Books() {
         <Col fluid size="md-8 sm-12">
           <Jumbotron>
             <h3>DOMINANT & WIN! </h3>
+
           </Jumbotron>
           {books.length ? (
             <List>
@@ -55,11 +56,14 @@ function Books() {
               ))}
             </List>
           ) : (
+
               <h3 style={{ textAlign: "center" }}>GOT BETS?</h3>
+
             )}
         </Col>
         <Col size="md-2 sm-12" />
       </Row>
+
       <Row>
         <Col size="md-2 sm-12" />
         <Col size="md-8 sm-12">
