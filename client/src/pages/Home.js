@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DeleteBtn from "../components/DeleteBtn";
+import DeleteBtn from "../components/Btn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
@@ -39,7 +39,7 @@ function Books() {
         <Col size="md-2 sm-12" />
         <Col fluid size="md-8 sm-12">
           <Jumbotron>
-            <h3>1 v 1 Match Post</h3>
+            <h3>DOMINANT & WIN! </h3>
           </Jumbotron>
           {books.length ? (
             <List>

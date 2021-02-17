@@ -13,9 +13,9 @@ function Nav() {
         />
       </a>
 
-      <h3 style={{ textAlign: "center" }}>ONE V1</h3>
+      <h3 style={{ text: 'Centered', headerTitleAlign: 'center' }}>ONE V1</h3>
 
-      <a href="#" type="button" class="btn btn-default navbar-btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
+      <a href="#" type="button" class="btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
         <span class="glyphicon"></span>Logout
       </a>
     </nav>
