@@ -31,47 +31,50 @@ function Books() {
       .then(res => loadBooks())
       .catch(err => console.log(err));
   }
-  
-  
+
+
   return (
-    <Container fluid>
-      <Row>
-        <Col size="md-2 sm-12" />
-        <Col fluid size="md-8 sm-12">
-          <Jumbotron>
-            <h3>DOMINANT & WIN! </h3>
-          </Jumbotron>
-          {books.length ? (
-            <List>
-              {books.map(book => (
-                <ListItem key={book._id}>
-                  <Link to={"/books/" + book._id}>
-                    <strong>
-                      {book.title} by {book.author}
-                    </strong>
-                  </Link>
-                  <DeleteBtn onClick={() => deleteBook(book._id)} />
-                </ListItem>
-              ))}
-            </List>
-          ) : (
-              <h3 style={{ textAlign: "center" }}>GOT BETS?</h3>
-            )}
-        </Col>
-        <Col size="md-2 sm-12" />
-      </Row>
-      <Row>
-        <Col size="md-2 sm-12" />
-        <Col size="md-8 sm-12">
-          <Popup
-            openPopup={openPopup}
-            setOpenPopup={setOpenPopup}
-          >
-          </Popup>
-        </Col>
-        <Col size="md-2 sm-12" />
-      </Row>
-    </Container>
+    <div>
+      <video src= "/videos/video.mp4" autoPlay loop muted />
+      <Container fluid>
+        <Row>
+          <Col size="md-2 sm-12" />
+          <Col fluid size="md-8 sm-12">
+            <Jumbotron>
+              <h3>DOMINANT & WIN! </h3>
+            </Jumbotron>
+            {books.length ? (
+              <List>
+                {books.map(book => (
+                  <ListItem key={book._id}>
+                    <Link to={"/books/" + book._id}>
+                      <strong>
+                        {book.title} by {book.author}
+                      </strong>
+                    </Link>
+                    <DeleteBtn onClick={() => deleteBook(book._id)} />
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+                <h3 style={{ textAlign: "center" }}>GOT BETS?</h3>
+              )}
+          </Col>
+          <Col size="md-2 sm-12" />
+        </Row>
+        <Row>
+          <Col size="md-2 sm-12" />
+          <Col size="md-8 sm-12">
+            <Popup
+              openPopup={openPopup}
+              setOpenPopup={setOpenPopup}
+            >
+            </Popup>
+          </Col>
+          <Col size="md-2 sm-12" />
+        </Row>
+      </Container>
+    </div>
   );
 }
 export default Books;
