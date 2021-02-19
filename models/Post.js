@@ -14,17 +14,12 @@ const Schema = mongoose.Schema;
 
 
 // Post.js
-const PostSchema = new Schema({
+const PostSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
   },
-
-  battleDate: {
-    type: Date,
-    default: Date.now
-  },
-
+  
   body: {
     type: String,
     required: true

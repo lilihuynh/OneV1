@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from './One_v1.png'
 
 function Nav() {
@@ -16,7 +16,7 @@ function Nav() {
 
       <h3 style={{ text: 'Centered', headerTitleAlign: 'center' }}>ONE V1</h3>
 
-      <a href="#" type="button" class="btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
+      <a href="/" type="button" class="btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
         <span class="glyphicon"></span>Logout
       </a>
     </nav>
