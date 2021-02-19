@@ -1,115 +1,83 @@
 import React, { useState, useEffect } from "react";
-import DeleteBtn from "../components/DeleteBtn";
+import DeleteBtn from "../components/Btn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+
+import Popup from "../components/Popup/Popup1"
+// import { post } from "../../";
 
 function Books() {
+  const [openPopup, setOpenPopup] = useState(false);
   // Setting our component's initial state
-  const [books, setBooks] = useState([])
-  const [formObject, setFormObject] = useState({})
+  const [posts, setPosts] = useState([])
+  // const [formObject, setFormObject] = useState({})
 
-  // Load all books and store them with setBooks
+  // Load all books and store them with setPosts
   useEffect(() => {
-    loadBooks()
+    loadPosts()
   }, [])
-
   // Loads all books and sets them to books
-  function loadBooks() {
-    API.getBooks()
-      .then(res => 
-        setBooks(res.data)
+  function loadPosts() {
+    API.getPosts()
+      .then(res =>
+        setPosts(res.data)
       )
       .catch(err => console.log(err));
   };
-
   // Deletes a book from the database with a given id, then reloads books from the db
-  function deleteBook(id) {
-    API.deleteBook(id)
-      .then(res => loadBooks())
+  function deletePost(id) {
+    API.deletePost(id)
+      .then(res => loadPosts())
       .catch(err => console.log(err));
   }
 
-  // Handles updating component state when the user types into the input field
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
-  };
 
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (formObject.title && formObject.author) {
-      API.saveBook({
-        title: formObject.title,
-        author: formObject.author,
-        synopsis: formObject.synopsis
-      })
-        .then(res => loadBooks())
-        .catch(err => console.log(err));
-    }
-  };
-
-    return (
+  return (
+    <div>
+      <video src="/videos/video.mp4" autoPlay loop muted />
       <Container fluid>
         <Row>
-          <Col size="md-6">
+          <Col size="md-2 sm-12" />
+          <Col fluid size="md-8 sm-12">
             <Jumbotron>
-              <h1>What Books Should I Read?</h1>
+              <h3>DOMINANT & WIN! </h3>
             </Jumbotron>
-            <form>
-              <Input
-                onChange={handleInputChange}
-                name="title"
-                placeholder="Title (required)"
-              />
-              <Input
-                onChange={handleInputChange}
-                name="author"
-                placeholder="Author (required)"
-              />
-              <TextArea
-                onChange={handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
-              />
-              <FormBtn
-                disabled={!(formObject.author && formObject.title)}
-                onClick={handleFormSubmit}
-              >
-                Submit Book
-              </FormBtn>
-            </form>
-          </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Books On My List</h1>
-            </Jumbotron>
-            {books.length ? (
+            {posts.length ? (
               <List>
-                {books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
+                {posts.map(post => (
+                  <ListItem key={post._id}>
+                    <Link to={"/post/" + post._id}>
                       <strong>
-                        {book.title} by {book.author}
+                        {post.title} by {post.username}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => deleteBook(book._id)} />
+                    <DeleteBtn onClick={() => deletePost(post._id)} />
                   </ListItem>
-                ))}
+                ))};
+
               </List>
             ) : (
-              <h3>No Results to Display</h3>
-            )}
+                <h3 style={{ textAlign: "center" }}>GOT BETS?</h3>
+              )}
           </Col>
+          <Col size="md-2 sm-12" />
+        </Row>
+        <Row>
+          <Col size="md-2 sm-12" />
+          <Col size="md-8 sm-12">
+            <Popup
+              openPopup={openPopup}
+              setOpenPopup={setOpenPopup}
+            >
+            </Popup>
+          </Col>
+          <Col size="md-2 sm-12" />
         </Row>
       </Container>
-    );
-  }
-
-
+    </div>
+  );
+}
 export default Books;

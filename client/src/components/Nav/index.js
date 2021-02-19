@@ -3,6 +3,7 @@ import logo from './One_v1.png'
 
 function Nav() {
   return (
+
     <nav className="navbar navbar-default navbar-expand-lg navbar-dark " style={{ backgroundColor: "#b7a57a" }} >
       <a className="navbar-brand" href="/">
         <img
@@ -11,14 +12,15 @@ function Nav() {
           height="50"
           className="d-inline-block align-top"
         />
-        {" "} One V1
-      </a>
-      
-      <a href="#" type="button" class="btn btn-default navbar-btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
-        <span class="glyphicon"></span>Logout
       </a>
 
+      <h3 style={{ text: 'Centered', headerTitleAlign: 'center' }}>ONE V1</h3>
+
+      <a href="/" type="button" class="btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
+        <span class="glyphicon"></span>Logout
+      </a>
     </nav>
+
   );
 }
 

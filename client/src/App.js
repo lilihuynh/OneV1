@@ -4,24 +4,26 @@ import Books from "./pages/Home";
 import Detail from "./pages/MatchInfo";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Home from "./pages/SignIn";
 
 function App() {
   return (
     <Router>
-      <div>
-        <Nav />
-        <Switch>
-          <Route exact path={["/", "/books"]}>
-            <Books />
-          </Route>
-          <Route exact path="/books/:id">
-            <Detail />
-          </Route>
-          <Route>
-            <NoMatch />
-          </Route>
-        </Switch>
-      </div>
+      <Nav />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/bets">
+          <Books/>
+        </Route>
+        <Route exact path="/posts/:id">
+          <Detail />
+        </Route>
+        <Route>
+          <NoMatch />
+        </Route>
+      </Switch>
     </Router>
   );
 }
