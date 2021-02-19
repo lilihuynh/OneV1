@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -22,19 +22,19 @@ export default function AlertDialogSlide() {
     const handleClose = () => {
         setOpen(false);
     };
-    const [books, setBooks] = useState([])
+    
     const [formObject, setFormObject] = useState({})
-    useEffect(() => {
-        loadBooks()
-    }, [])
+    // useEffect(() => {
+    //     loadPosts()
+    // }, [])
     // Loads all books and sets them to books
-    function loadBooks() {
-        API.getBooks()
-            .then(res =>
-                setBooks(res.data)
-            )
-            .catch(err => console.log(err));
-    };
+    // function loadPosts() {
+    //     API.getPosts()
+    //         .then(res =>
+    //             setPosts(res.data)
+    //         )
+    //         .catch(err => console.log(err));
+    // };
     // Handles updating component state when the user types into the input field
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -46,12 +46,12 @@ export default function AlertDialogSlide() {
     function handleFormSubmit(event) {
         event.preventDefault();
         if (formObject.title && formObject.author) {
-            API.saveBook({
+            API.savePost({
                 title: formObject.title,
-                author: formObject.author,
+                username: formObject.author,
                 synopsis: formObject.synopsis
             })
-                .then(res => loadBooks())
+                .then(res => handleClose())
                 .catch(err => console.log(err));
         }
     };
@@ -60,7 +60,7 @@ export default function AlertDialogSlide() {
         <div>
             <Button type="button" class="btn" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }} onClick={handleClickOpen}>
                 Creat a Match
-      </Button>
+            </Button>
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -80,29 +80,29 @@ export default function AlertDialogSlide() {
                         />
                         <Input
                             onChange={handleInputChange}
-                            name="User_Name"
+                            name="username"
                             placeholder="User_ID (required)"
                         />
                         <Input
                             onChange={handleInputChange}
-                            name="Wager"
+                            name="bettingPoint"
                             type="number"
                             placeholder="Bet Points (required)"
                         />
                         <TextArea
                             onChange={handleInputChange}
-                            name="Bet"
+                            name="body"
                             placeholder="Description of the Match, Please include your in-game ID and avalibility of the match(required)"
                         />
                     </form>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">
-                        Cancle
-          </Button>
+                        Cancel
+            </Button>
                     <FormBtn onClick={handleFormSubmit} color="primary">
                         Let's Bet
-          </FormBtn>
+            </FormBtn>
                 </DialogActions>
             </Dialog>
         </div>
