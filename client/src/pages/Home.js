@@ -12,7 +12,6 @@ function Books() {
   const [openPopup, setOpenPopup] = useState(false);
   // Setting our component's initial state
   const [books, setBooks] = useState([])
-  const [formObject, setFormObject] = useState({})
   // Load all books and store them with setBooks
   useEffect(() => {
     loadBooks()
