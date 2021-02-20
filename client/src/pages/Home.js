@@ -4,12 +4,12 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import { List, ListItem} from "../components/List";
 
 import Popup from "../components/Popup/Popup1"
 // import { post } from "../../";
 
-function Books() {
+function UserHome() {
   const [openPopup, setOpenPopup] = useState(false);
   // Setting our component's initial state
   const [posts, setPosts] = useState([])
@@ -22,9 +22,10 @@ function Books() {
   // Loads all books and sets them to books
   function loadPosts() {
     API.getPosts()
-      .then(res =>
+      .then((res) =>{
+      console.log(res.data)
         setPosts(res.data)
-      )
+      })
       .catch(err => console.log(err));
   };
   // Deletes a book from the database with a given id, then reloads books from the db
@@ -32,8 +33,7 @@ function Books() {
     API.deletePost(id)
       .then(res => loadPosts())
       .catch(err => console.log(err));
-  };
-
+  }
   return (
     <div>
       <video src="/videos/video.mp4" autoPlay loop muted />
@@ -78,4 +78,4 @@ function Books() {
     </div>
   );
 }
-export default Books;
+export default UserHome;
