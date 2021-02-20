@@ -1,2 +1,12 @@
-import React, { useState, useEffect } from "react";
-import Jumbotron from "../components/Jumbotron";
+
+import React from "react";
+import HeroSection from '../components/FrontPage/HeroSection';
+
+function Home() {
+    return (
+        <>
+            <HeroSection />
+        </>
+)};
+export default Home;
+
