@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import Jumbotron from "../components/Jumbotron";
-import HeroSection from '../components/Hero';
+
+import React from "react";
+import HeroSection from '../components/FrontPage/HeroSection';
 
 function Home() {
     return (
         <>
-        <HeroSection />
+            <HeroSection />
         </>
-    );
-}
+)};
+export default Home;
 
-export default SignIn;
