@@ -3,12 +3,13 @@ import 'firebase/auth';
 import 'firebase/database';
 
 const config = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  apiKey: "AIzaSyDu3YNeywy7gruFGzsEA2ixGYIxEBQvrSk",
+  authDomain: "onev1-fbe0c.firebaseapp.com",
+  projectId: "onev1-fbe0c",
+  storageBucket: "onev1-fbe0c.appspot.com",
+  messagingSenderId: "451678783667",
+  appId: "1:451678783667:web:e42523158358f1de88c8c6",
+  measurementId: "G-DEFSPKWWKN"
 };
 
 class Firebase {
