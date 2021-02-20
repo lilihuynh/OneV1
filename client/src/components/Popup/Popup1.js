@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useEffect,useState} from "react";
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -13,6 +13,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function AlertDialogSlide() {
+    const [post, setPosts] = useState({})
     const [open, setOpen] = React.useState(false);
     const fullWidth = React.useState(true);
     const handleClickOpen = () => {
@@ -24,17 +25,17 @@ export default function AlertDialogSlide() {
     };
     
     const [formObject, setFormObject] = useState({})
-    // useEffect(() => {
-    //     loadPosts()
-    // }, [])
-    // Loads all books and sets them to books
-    // function loadPosts() {
-    //     API.getPosts()
-    //         .then(res =>
-    //             setPosts(res.data)
-    //         )
-    //         .catch(err => console.log(err));
-    // };
+    useEffect(() => {
+        loadPosts()
+    }, [])
+    //Loads all books and sets them to books
+    function loadPosts() {
+        API.getPosts()
+            .then(res =>
+                setPosts(res.data)
+            )
+            .catch(err => console.log(err));
+    };
     // Handles updating component state when the user types into the input field
     function handleInputChange(event) {
         const { name, value } = event.target;
