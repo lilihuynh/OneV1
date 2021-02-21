@@ -14,43 +14,42 @@ const Schema = mongoose.Schema;
 
 
 // Post.js
-const PostSchema = new mongoose.Schema({
+const PostSchema = new Schema({
   title: {
     type: String,
     required: true,
   },
-  
+
   body: {
     type: String,
     required: true
   },
 
-  screenshot:{
-    type: String,
-    default: "none"
+  // screenshot: {
+  //   type: String,
+  //   default: "none"
 
-  },
+  // },
 
   bettingPoint: {
     type: Number,
     required: true
-  },
+  }
 
   //relate to user who post this post
-  author: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-    required: true
-  },
+  // author: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "User",
+  //   required: true
+  // },
 
   //the user who accept the challenge
 
-  acceptedBy:[
-    {type: Schema.Types.ObjectId,
-    ref: "User",
-    }
-
-  ]
+  // acceptedBy: 
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "User",
+  //   }
 
 })
 

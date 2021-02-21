@@ -1,5 +1,8 @@
 import React from "react";
-import logo from './One_v1.png'
+import logo from './One_v1.png';
+import LogoutButton from '..//Btn/index';
+import { Link } from "react-router-dom";
+
 
 
 
@@ -18,24 +21,12 @@ function Nav() {
       </a>
   
       <h3 style={{ text: 'Centered', headerTitleAlign: 'center' }}>ONE V1</h3>
-      <a href="/" type="button" class="btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
-        <span class="glyphicon"></span>Logout
+      <a href="/" type="button" className="btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
+        <span className="glyphicon"></span>Logout
       </a>
     </nav>
 
   );
-
-
-
-  // return(
-  //   <>
-  //   <nav className = "navbar">
-  //     <div className = "navbar-container">
-  
-  //     </div>
-  //   </nav>
-  //   </>
-  // )
   
 }
 
@@ -43,5 +34,16 @@ export default Nav;
 
 
 
+// return(
+//     <>
+//     <nav className = "navbar">
+//       <div className = "navbar-container">
+//         <Link to='/' className='navbar-logo'>
 
+//         </Link>
+  
+//       </div>
+//     </nav>
+//     </>
+//   )
 

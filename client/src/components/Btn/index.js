@@ -25,7 +25,7 @@ export const SignupButton = ({
     <Link to= '/sign-up' className='btn-mobile'>
       <button
       className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-      onClick = {onClick}
+      onClick={onClick}
       type = {type}
       >
         {children}

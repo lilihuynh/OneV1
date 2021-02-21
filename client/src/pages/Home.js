@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from "react";
-import DeleteBtn from "../components/Btn";
+// import DeleteBtn from "../components/Btn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 
 import Popup from "../components/Popup/Popup1"
 // import { post } from "../../";
 
-function Books() {
+function UserHome() {
   const [openPopup, setOpenPopup] = useState(false);
   // Setting our component's initial state
   const [posts, setPosts] = useState([])
-  // const [formObject, setFormObject] = useState({})
+  const [formObject, setFormObject] = useState({})
 
   // Load all books and store them with setPosts
   useEffect(() => {
     loadPosts()
-  }, [])
+    
+  }, [])// eslint-disable-next-line react-hooks/exhaustive-deps
   // Loads all books and sets them to books
+  
   function loadPosts() {
+    setFormObject({...formObject})
     API.getPosts()
       .then(res =>
         setPosts(res.data)
@@ -46,7 +49,7 @@ function Books() {
             </Jumbotron>
             {posts.length ? (
               <List>
-                {posts.map(post => (
+                {/* {posts.map(post => (
                   <ListItem key={post._id}>
                     <Link to={"/posts/" + post._id}>
                       <strong>
@@ -55,7 +58,7 @@ function Books() {
                     </Link>
                     <DeleteBtn onClick={() => deletePost(post._id)} />
                   </ListItem>
-                ))};
+                ))}; */}
               </List>
             ) : (
                 <h3 style={{ textAlign: "center" }}>GOT BETS?</h3>
@@ -78,4 +81,4 @@ function Books() {
     </div>
   );
 }
-export default Books;
+export default UserHome;
