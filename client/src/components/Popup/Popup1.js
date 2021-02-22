@@ -13,7 +13,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function AlertDialogSlide() {
-    const [post, setPosts] = useState({})
+    const [posts, setPosts] = useState({})
     const [open, setOpen] = React.useState(false);
     const fullWidth = React.useState(true);
     const handleClickOpen = () => {
@@ -49,8 +49,9 @@ export default function AlertDialogSlide() {
         if (formObject.title && formObject.author) {
             API.savePost({
                 title: formObject.title,
-                username: formObject.author,
-                synopsis: formObject.synopsis
+                username: formObject.username,
+                body: formObject.body,
+                bettingPoint: formObject.bettingPoint
             })
                 .then(res => handleClose())
                 .catch(err => console.log(err));

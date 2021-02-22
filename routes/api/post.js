@@ -19,6 +19,6 @@ router
 //   .get(postController.findByUserId);
 
 
-//someone accept the challenge
+
 
 module.exports = router;

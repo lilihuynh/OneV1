@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import DeleteBtn from "../components/Btn";
+import DeleteBtn from "../components/Btn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import { List, ListItem} from "../components/List";
 
 import Popup from "../components/Popup/Popup1"
 // import { post } from "../../";
@@ -25,9 +25,10 @@ function UserHome() {
   function loadPosts() {
     setFormObject({...formObject})
     API.getPosts()
-      .then(res =>
+      .then((res) =>{
+      console.log(res.data)
         setPosts(res.data)
-      )
+      })
       .catch(err => console.log(err));
   };
   // Deletes a book from the database with a given id, then reloads books from the db
@@ -35,8 +36,7 @@ function UserHome() {
     API.deletePost(id)
       .then(res => loadPosts())
       .catch(err => console.log(err));
-  };
-
+  }
   return (
     <div>
       <video src="/videos/video.mp4" autoPlay loop muted />
@@ -49,7 +49,7 @@ function UserHome() {
             </Jumbotron>
             {posts.length ? (
               <List>
-                {/* {posts.map(post => (
+                {posts.map(post => (
                   <ListItem key={post._id}>
                     <Link to={"/posts/" + post._id}>
                       <strong>
@@ -58,7 +58,7 @@ function UserHome() {
                     </Link>
                     <DeleteBtn onClick={() => deletePost(post._id)} />
                   </ListItem>
-                ))}; */}
+                ))};
               </List>
             ) : (
                 <h3 style={{ textAlign: "center" }}>GOT BETS?</h3>
