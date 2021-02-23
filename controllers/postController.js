@@ -1,13 +1,12 @@
-const { Post } = require("../models");
+// const { Post } = require("../models");
 const db = require("../models");
-
+console.log("testing 4");
 module.exports = {
-
     //retrieve all posts
     findAll: function (req, res) {
+        console.log("I am here")
         db.Post
             .find(req.query)
-            .sort({ date: -1 })
             .populate("author", "_id username")  //populate author of this post, only show id and username
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
@@ -65,23 +64,3 @@ module.exports = {
     }
 };
 
-// app.get("/notes", (req, res) => {
-//     db.Note.find({})
-//       .then(dbNote => {
-//         res.json(dbNote);
-//       })
-//       .catch(err => {
-//         res.json(err);
-//       });
-//   });
-
-// app.post("/submit", ({ body }, res) => {
-//     db.Post.create(body)
-//       .then(({ _id }) => db.User.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
-//       .then(dbUser => {
-//         res.json(dbUser);
-//       })
-//       .catch(err => {
-//         res.json(err);
-//       });
-//   });

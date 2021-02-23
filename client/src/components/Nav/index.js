@@ -1,7 +1,10 @@
 import React from "react";
 import logo from './One_v1.png'
 
+
+
 function Nav() {
+
   return (
 
     <nav className="navbar navbar-default navbar-expand-lg navbar-dark " style={{ backgroundColor: "#b7a57a" }} >
@@ -13,15 +16,38 @@ function Nav() {
           className="d-inline-block align-top"
         />
       </a>
-
+  
       <h3 style={{ text: 'Centered', headerTitleAlign: 'center' }}>ONE V1</h3>
+<<<<<<< HEAD
 
       <a href="/" type="button" className="btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
         <span className="glyphicon"></span>Logout
+=======
+      <a href="/" type="button" class="btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
+        <span class="glyphicon"></span>Logout
+>>>>>>> f7d0e26cafa91d76cfa167ab0d9ae4806d0a421f
       </a>
     </nav>
 
   );
+
+
+
+  // return(
+  //   <>
+  //   <nav className = "navbar">
+  //     <div className = "navbar-container">
+  
+  //     </div>
+  //   </nav>
+  //   </>
+  // )
+  
 }
 
 export default Nav;
+
+
+
+
+
