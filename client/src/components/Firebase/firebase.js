@@ -9,7 +9,8 @@ const config = {
   storageBucket: "onev1-fbe0c.appspot.com",
   messagingSenderId: "451678783667",
   appId: "1:451678783667:web:e42523158358f1de88c8c6",
-  measurementId: "G-DEFSPKWWKN"
+  measurementId: "G-DEFSPKWWKN",
+  databaseURL: ""
 };
 
 class Firebase {
