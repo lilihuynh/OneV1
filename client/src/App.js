@@ -40,7 +40,7 @@ import PasswordForgetPage from './components/PasswordForget';
 import HomePage from './components/Home';
 import AccountPage from './components/Account';
 import AdminPage from './components/Admin';
-
+import Home from "./pages/Welcome";
 import * as ROUTES from './constants/routes';
 import { withAuthentication } from './components/Session';
 
@@ -51,7 +51,7 @@ const App = () => (
 
       <hr />
 
-      <Route exact path={ROUTES.LANDING} component={LandingPage} />
+      <Route exact path={ROUTES.HOME} component={Home} />
       <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
       <Route path={ROUTES.SIGN_IN} component={SignInPage} />
       <Route
