@@ -7,9 +7,9 @@ const userController = require("../controllers/userController");
 router.get("/posts", postController.findAll);
 router.post("/posts",postController.create);
 
-router.get("/:id",postController.findById);
-router.delete("/:id",postController.remove);
-router.put("/:id",postController.accept);
+router.get("/posts/:id",postController.findById);
+router.delete("/posts/:id",postController.remove);
+router.put("/posts/:id",postController.accept);
 
 
 router.post("/",userController.create);
