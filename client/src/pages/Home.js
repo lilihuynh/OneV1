@@ -13,14 +13,17 @@ function UserHome() {
   const [openPopup, setOpenPopup] = useState(false);
   // Setting our component's initial state
   const [posts, setPosts] = useState([])
-  // const [formObject, setFormObject] = useState({})
+  const [formObject, setFormObject] = useState({})
 
   // Load all books and store them with setPosts
   useEffect(() => {
     loadPosts()
-  }, [])
+    
+  }, [])// eslint-disable-next-line react-hooks/exhaustive-deps
   // Loads all books and sets them to books
+  
   function loadPosts() {
+    setFormObject({...formObject})
     API.getPosts()
       .then((res) =>{
       console.log(res.data)
@@ -34,8 +37,6 @@ function UserHome() {
       .then(res => loadPosts())
       .catch(err => console.log(err));
   }
-
-// console.log(posts)
   return (
     <div>
       <video src="/videos/video.mp4" autoPlay loop muted />
@@ -50,15 +51,14 @@ function UserHome() {
               <List>
                 {posts.map(post => (
                   <ListItem key={post._id}>
-                    <Link to={"/post/" + post._id}>
+                    <Link to={"/posts/" + post._id}>
                       <strong>
-                        {post.title} by {post.username}
+                        {post.title} by {post.body}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deletePost(post._id)} />
                   </ListItem>
                 ))};
-
               </List>
             ) : (
                 <h3 style={{ textAlign: "center" }}>GOT BETS?</h3>

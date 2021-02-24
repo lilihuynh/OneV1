@@ -4,7 +4,7 @@ import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 
-function Detail(props) {
+function Detail() {
   const [post, setPost] = useState({})
 
   // When this component mounts, grab the book with the _id of props.match.params.id
@@ -14,7 +14,7 @@ function Detail(props) {
     API.getPost(id)
       .then(res => setPost(res.data))
       .catch(err => console.log(err));
-  }, [id])
+  }, [])
 
   return (
       <Container fluid>
@@ -22,7 +22,7 @@ function Detail(props) {
           <Col size="md-12">
             <Jumbotron>
               <h1>
-                {post.title} by 
+                {post.title} by {post._id}
               </h1>
             </Jumbotron>
           </Col>
@@ -30,7 +30,7 @@ function Detail(props) {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>Synopsis</h1>
+              <h1>Match Detail Info</h1>
               <p>
                 {post.body}
               </p>
