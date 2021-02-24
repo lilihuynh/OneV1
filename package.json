@@ -22,10 +22,11 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "axios": "^0.18.0",
+    "bootstrap": "^4.6.0",
     "express": "^4.16.3",
     "firebase": "^8.2.9",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
-    "recompose": "^0.30.0"
+    "react-bootstrap": "^1.5.0"
   }
 }
