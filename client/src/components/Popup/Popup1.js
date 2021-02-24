@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useEffect,useState} from "react";
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -13,6 +13,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function AlertDialogSlide() {
+    const [posts, setPosts] = useState({})
     const [open, setOpen] = React.useState(false);
     const fullWidth = React.useState(true);
     const handleClickOpen = () => {
@@ -24,17 +25,17 @@ export default function AlertDialogSlide() {
     };
     
     const [formObject, setFormObject] = useState({})
-    // useEffect(() => {
-    //     loadPosts()
-    // }, [])
-    // Loads all books and sets them to books
-    // function loadPosts() {
-    //     API.getPosts()
-    //         .then(res =>
-    //             setPosts(res.data)
-    //         )
-    //         .catch(err => console.log(err));
-    // };
+    useEffect(() => {
+        loadPosts()
+    }, [])
+    //Loads all books and sets them to books
+    function loadPosts() {
+        API.getPosts()
+            .then(res =>
+                setPosts(res.data)
+            )
+            .catch(err => console.log(err));
+    };
     // Handles updating component state when the user types into the input field
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -48,8 +49,9 @@ export default function AlertDialogSlide() {
         if (formObject.title && formObject.author) {
             API.savePost({
                 title: formObject.title,
-                username: formObject.author,
-                synopsis: formObject.synopsis
+                username: formObject.username,
+                body: formObject.body,
+                bettingPoint: formObject.bettingPoint
             })
                 .then(res => handleClose())
                 .catch(err => console.log(err));
@@ -58,7 +60,7 @@ export default function AlertDialogSlide() {
 
     return (
         <div>
-            <Button type="button" class="btn" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }} onClick={handleClickOpen}>
+            <Button type="button" className="btn" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }} onClick={handleClickOpen}>
                 Creat a Match
             </Button>
             <Dialog

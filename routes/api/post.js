@@ -2,7 +2,7 @@ const router = require("express").Router();
 const postController = require("../../controllers/postController");
 
 
-router.route("/bets")
+router.route("/posts")
   .get(postController.findAll)
   .post(postController.create);
 
@@ -19,6 +19,6 @@ router
 //   .get(postController.findByUserId);
 
 
-//someone accept the challenge
+
 
 module.exports = router;
