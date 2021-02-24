@@ -4,7 +4,7 @@ import UserHome from "./pages/Home";
 import Detail from "./pages/MatchInfo";
 import NoMatch from "./pages/NoMatch";
 import Navigationbar from "./components/Nav";
-import Home from "./pages/SignIn";
+import Home from "./pages/Welcome";
 
 function App() {
   return (
