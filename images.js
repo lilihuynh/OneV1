@@ -10,7 +10,7 @@ function imageUpload() {
         data.append('upload_preset', 'image_Preset')
         setloading(true)
         const res = await fetch(
-            'https://api.cloudinary.com/v1_1/dzlpuszwa/image/upload'.
+            'https://api.cloudinary.com/v1_1/dzlpuszwa/image/upload',
             {
                 method: 'POST',
                 body: data

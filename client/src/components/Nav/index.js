@@ -1,25 +1,38 @@
-import React from "react";
-import logo from './One_v1.png'
+import React from 'react';
+import logo from './One_v1.png';
+import { Navbar, Nav } from 'react-bootstrap';
+// import * as ReactBootStrap from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Nav() {
+// class Navigationbar extends Component {
+//   state = { clicked: false }
+
+//   render() {
+function Navigationbar() {
   return (
-    <nav className="navbar navbar-default navbar-expand-lg navbar-dark " style={{ backgroundColor: "#b7a57a" }} >
-      <a className="navbar-brand" href="/">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand href="/">
         <img
-          src={logo} alt="logo"
-          width="50"
-          height="50"
+          src={logo}
+          width="30"
+          height="30"
           className="d-inline-block align-top"
+          alt="React Bootstrap logo"
         />
-        {" "} One V1
-      </a>
-      
-      <a href="#" type="button" class="btn btn-default navbar-btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
-        <span class="glyphicon"></span>Logout
-      </a>
-
-    </nav>
+        {' '} One V1
+  </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="ml-auto">
+          {/* <Nav.Link href="#features">Welcome</Nav.Link> */}
+          <Nav.Link href="/sign-up">Sign Up</Nav.Link>
+          <Nav.Link href="/sign-in">Sign In</Nav.Link>
+          <Nav.Link eventKey={2} href="/">
+            Log Out</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
+  
 }
-
-export default Nav;
+export default Navigationbar;
