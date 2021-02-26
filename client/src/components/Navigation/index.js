@@ -4,7 +4,6 @@ import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
-
 import React from 'react';
 import logo from './One_v1.png';
 import { Link } from 'react-router-dom';
