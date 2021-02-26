@@ -1,14 +1,15 @@
 import React from 'react';
 import logo from './One_v1.png';
-import { Navbar, Nav } from 'react-bootstrap';
-// import * as ReactBootStrap from 'react-bootstrap';
+import { Navbar, Nav, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {LogoutButton} from "../Btn/btn";
+import fire from '../../fire'
 
-// class Navigationbar extends Component {
-//   state = { clicked: false }
+const handleLogout = () => {
+  fire.auth().signOut();
+};
 
-//   render() {
-function Navigationbar() {
+const Navigationbar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="/">
@@ -24,11 +25,7 @@ function Navigationbar() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto">
-          {/* <Nav.Link href="#features">Welcome</Nav.Link> */}
-          <Nav.Link href="/sign-up">Sign Up</Nav.Link>
-          <Nav.Link href="/sign-in">Sign In</Nav.Link>
-          <Nav.Link eventKey={2} href="/">
-            Log Out</Nav.Link>
+          <LogoutButton oncClick={() => handleLogout()}>Log Out</LogoutButton>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
