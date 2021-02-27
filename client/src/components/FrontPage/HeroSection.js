@@ -1,6 +1,6 @@
 import React from 'react';
 import './HeroSection.css';
-import {SignupButton, SigninButton} from '../Btn/btn';
+import {SignupButton} from '../Btn/btn';
 
 
 function HeroSection() {
@@ -17,13 +17,6 @@ function HeroSection() {
                 >
                     GET STARTED
                 </SignupButton>
-                <SigninButton
-                className='btns' 
-                buttonStyle='btn--outline'
-                buttonSize='btn--large'
-                >
-                    SIGN IN
-                </SigninButton>
             </div> 
         </div>
     )
