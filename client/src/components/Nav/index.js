@@ -3,11 +3,6 @@ import logo from './One_v1.png';
 import { Navbar, Nav } from 'react-bootstrap';
 // import * as ReactBootStrap from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-// class Navigationbar extends Component {
-//   state = { clicked: false }
-
-//   render() {
 function Navigationbar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
