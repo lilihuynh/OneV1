@@ -39,28 +39,28 @@ const userdb = [
 
 const postdb = [
   {
-    title: "inqwoinqd",
-    // author: "1e12eqw",
-    body: "12deceqw",
-    bettingPoint: "12"
+    title: "Call of Duty",
+    body: "This saturday 02/10/2021 at 1pm one v one",
+    // author: "user5",
+    bettingPoint: "5",
   },
   {
-    title: "qc3ec",
-    // author: "3ec31c",
-    body: "c3c13c3",
-    bettingPoint: "12"
+    title: "NBA 2K",
+    // author: "user1",
+    body: "Today on my court",
+    bettingPoint: "10"
   },
   {
-    title: "qc3ec",
-    // author: "3ec31c",
-    body: "c3c13c3",
-    bettingPoint: "12"
+    title: "Fortnite",
+    // author: "user52",
+    body: "4 v 4 team death match",
+    bettingPoint: "10"
   },
   {
-    title: "qc3ec",
-    // author: "3ec31c",
-    body: "c3c13c3",
-    bettingPoint: "12"
+    title: "FIFA",
+    // author: "user9",
+    body: "one v one on my field",
+    bettingPoint: "15"
   }
 ];
 
