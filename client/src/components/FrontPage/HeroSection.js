@@ -1,6 +1,6 @@
 import React from 'react';
 import './HeroSection.css';
-import {SignupButton, SigninButton} from '../Btn/index';
+import {SignupButton, SigninButton} from '../Btn/btn';
 
 
 function HeroSection() {

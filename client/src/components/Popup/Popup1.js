@@ -60,7 +60,7 @@ export default function AlertDialogSlide() {
 
     return (
         <div>
-            <Button type="button" class="btn" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }} onClick={handleClickOpen}>
+            <Button type="button" className="btn" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }} onClick={handleClickOpen}>
                 Creat a Match
             </Button>
             <Dialog
