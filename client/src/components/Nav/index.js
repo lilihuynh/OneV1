@@ -24,20 +24,8 @@ const Navigationbar = () => {
   </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-<<<<<<< HEAD
-        <Nav className="mr-auto">
-          {/* <Nav.Link href="#features">Welcome</Nav.Link> */}
-          <Nav.Link href="/signin">Sign In</Nav.Link>
-        </Nav>
-        <Nav>
-          <Nav.Link href="/signup">Sign Up</Nav.Link>
-          <Nav.Link eventKey={2} href="/">
-            Log Out
-      </Nav.Link>
-=======
         <Nav className="ml-auto">
           <LogoutButton oncClick={() => handleLogout()}>Log Out</LogoutButton>
->>>>>>> master
         </Nav>
       </Navbar.Collapse>
     </Navbar>
