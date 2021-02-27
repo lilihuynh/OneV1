@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
+import {axios} from 'react'
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
@@ -58,13 +58,13 @@ class SignUpFormBase extends Component {
           email: this.state.email,
         }
         console.log(user)
-        const resp = await axios.post('', user);
+        const resp = await axios.post('/api/users/', user);
         console.log(resp)
         // Create a user in your Firebase realtime database
         return this.props.firebase.user(authUser.user.uid).set({
           username,
           email,
-          roles,
+          roles
         });
       })
       .then(() => {

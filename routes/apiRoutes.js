@@ -12,9 +12,9 @@ router.delete("/posts/:id",postController.remove);
 router.put("/posts/:id",postController.accept);
 
 
-router.post("/",userController.create);
+router.post("/users",userController.create);
 router.get("/users",userController.findAll)
-router.get("/:id",userController.findById);
+router.get("/users/:id",userController.findById);
 
 router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
