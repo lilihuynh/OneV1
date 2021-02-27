@@ -25,10 +25,10 @@ function Navigationbar() {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           {/* <Nav.Link href="#features">Welcome</Nav.Link> */}
-          <Nav.Link href="/sign-in">Sign In</Nav.Link>
+          <Nav.Link href="/signin">Sign In</Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link href="/sign-up">Sign Up</Nav.Link>
+          <Nav.Link href="/signup">Sign Up</Nav.Link>
           <Nav.Link eventKey={2} href="/">
             Log Out
       </Nav.Link>

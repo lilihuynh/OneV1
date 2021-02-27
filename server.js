@@ -1,10 +1,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const cors = require("cors");
-const authMiddleware = require("./auth-middleware")
-const firebase = require("firebase-admin");
-const credentials = require("./credentials.json");
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -26,8 +23,6 @@ mongoose.connect(
   { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
 
 );
-
-app.use("/", authMiddleware);
 
 // Use apiRoutes
 app.use("/api", apiRoutes);

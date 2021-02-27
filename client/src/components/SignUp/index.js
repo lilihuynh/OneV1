@@ -49,7 +49,17 @@ class SignUpFormBase extends Component {
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then(authUser => {
+      .then(async authUser => {
+        // console.log(authUser)
+
+        const user = {
+          username: this.state.username,
+          firebaseId: authUser.user.uid,
+          email: this.state.email,
+        }
+        console.log(user)
+        const resp = await axios.post('', user);
+        console.log(resp)
         // Create a user in your Firebase realtime database
         return this.props.firebase.user(authUser.user.uid).set({
           username,

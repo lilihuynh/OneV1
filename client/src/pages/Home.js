@@ -18,8 +18,7 @@ function UserHome() {
   // Load all books and store them with setPosts
   useEffect(() => {
     loadPosts()
-    
-  }, [])// eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   // Loads all books and sets them to books
   
   function loadPosts() {
