@@ -1,47 +1,155 @@
-import React from "react";
-import logo from './One_v1.png'
+import React from 'react';
+import logo from './One_v1.png';
+import { Navbar, Nav } from 'react-bootstrap';
+// import * as ReactBootStrap from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+// class Navigationbar extends Component {
+//   state = { clicked: false }
 
-
-function Nav() {
-
+//   render() {
+function Navigationbar() {
   return (
-
-    <nav className="navbar navbar-default navbar-expand-lg navbar-dark " style={{ backgroundColor: "#b7a57a" }} >
-      <a className="navbar-brand" href="/">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand href="/">
         <img
-          src={logo} alt="logo"
-          width="50"
-          height="50"
+          src={logo}
+          width="30"
+          height="30"
           className="d-inline-block align-top"
+          alt="React Bootstrap logo"
         />
-      </a>
-  
-      <h3 style={{ text: 'Centered', headerTitleAlign: 'center' }}>ONE V1</h3>
-      <a href="/" type="button" class="btn ml-auto" style={{ color: "#b7a57a", backgroundColor: "#4b2e83" }}>
-        <span class="glyphicon"></span>Logout
-      </a>
-    </nav>
-
+        {' '} One V1
+  </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+          {/* <Nav.Link href="#features">Welcome</Nav.Link> */}
+          <Nav.Link href="/signin">Sign In</Nav.Link>
+        </Nav>
+        <Nav>
+          <Nav.Link href="/signup">Sign Up</Nav.Link>
+          <Nav.Link eventKey={2} href="/">
+            Log Out
+      </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
-
-
-
-  // return(
-  //   <>
-  //   <nav className = "navbar">
-  //     <div className = "navbar-container">
-  
-  //     </div>
-  //   </nav>
-  //   </>
-  // )
   
 }
-
-export default Nav;
-
+export default Navigationbar;
 
 
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import { AuthUserContext } from '../Session';
+// import SignOutButton from '../SignOut';
+// import * as ROUTES from '../../constants/routes';
+// import * as ROLES from '../../constants/roles';
+
+// const Navigation = () => (
+//   <AuthUserContext.Consumer>
+//     {authUser =>
+//       authUser ? (
+//         <NavigationAuth authUser={authUser} />
+//       ) : (
+//         <NavigationNonAuth />
+//       )
+//     }
+//   </AuthUserContext.Consumer>
+// );
+
+// const NavigationAuth = ({ authUser }) =>{
+//   return (
+//     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+//       <Navbar.Brand href="/">
+//         <img
+//           src={logo}
+//           width="30"
+//           height="30"
+//           className="d-inline-block align-top"
+//           alt="React Bootstrap logo"
+//         />
+//         {' '} One V1
+//   </Navbar.Brand>
+//       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+//       <Navbar.Collapse id="responsive-navbar-nav">
+//         <Nav className="mr-auto">
+//         <SignOutButton />
+//         </Nav>
+//       </Navbar.Collapse>
+//     </Navbar>
+//   );
+  
+// }
 
 
+// (
+//   <ul>
+//     <li>
+//       <Link to={ROUTES.LANDING}>Landing</Link>
+//     </li>
+//     <li>
+//       <Link to={ROUTES.HOME}>Home</Link>
+//     </li>
+//     <li>
+//       <Link to={ROUTES.ACCOUNT}>Account</Link>
+//     </li>
+//     {!!authUser.roles[ROLES.ADMIN] && (
+//       <li>
+//         <Link to={ROUTES.ADMIN}>Admin</Link>
+//       </li>
+//     )}
+//     <li>
+//       <SignOutButton />
+//     </li>
+//   </ul>
+// );
+
+// const NavigationNonAuth = () =>{
+//   return (
+//     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+//       <Navbar.Brand href="/">
+//         <img
+//           src={logo}
+//           width="30"
+//           height="30"
+//           className="d-inline-block align-top"
+//           alt="React Bootstrap logo"
+//         />
+//         {' '} One V1
+//   </Navbar.Brand>
+//       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+//       <Navbar.Collapse id="responsive-navbar-nav">
+//         <Nav className="mr-auto">
+//           {/* <Nav.Link href="#features">Welcome</Nav.Link> */}
+//           <Nav.Link to={ROUTES.SIGN_IN}>Sign In</Nav.Link>
+//         </Nav>
+//         <Nav>
+//           <Nav.Link href="/sign-up">Sign Up</Nav.Link>
+//           <Nav.Link eventKey={2} href="/">
+//             Log Out
+//       </Nav.Link>
+//         </Nav>
+//       </Navbar.Collapse>
+//     </Navbar>
+//   );
+  
+// }
+
+// (
+  
+//   <ul>
+//     <li>
+//       <Link to={ROUTES.LANDING}>Landing</Link>
+//     </li>
+//     <li>
+//       <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+//     </li>
+//   </ul>
+
+  
+// );
+
+// export default Navigation;
