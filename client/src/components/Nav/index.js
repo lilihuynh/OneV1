@@ -1,9 +1,15 @@
 import React from 'react';
 import logo from './One_v1.png';
-import { Navbar, Nav } from 'react-bootstrap';
-// import * as ReactBootStrap from 'react-bootstrap';
+import { Navbar, Nav, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-function Navigationbar() {
+import {LogoutButton} from "../Btn/btn";
+import fire from '../../fire'
+
+const handleLogout = () => {
+  fire.auth().signOut();
+};
+
+const Navigationbar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="/">
@@ -18,6 +24,7 @@ function Navigationbar() {
   </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
+<<<<<<< HEAD
         <Nav className="mr-auto">
           {/* <Nav.Link href="#features">Welcome</Nav.Link> */}
           <Nav.Link href="/signin">Sign In</Nav.Link>
@@ -27,6 +34,10 @@ function Navigationbar() {
           <Nav.Link eventKey={2} href="/">
             Log Out
       </Nav.Link>
+=======
+        <Nav className="ml-auto">
+          <LogoutButton oncClick={() => handleLogout()}>Log Out</LogoutButton>
+>>>>>>> master
         </Nav>
       </Navbar.Collapse>
     </Navbar>

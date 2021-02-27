@@ -1,28 +1,89 @@
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import UserHome from "./pages/Home";
+import Detail from "./pages/MatchInfo";
+import NoMatch from "./pages/NoMatch";
+import Navigationbar from "./components/Nav/index";
+import Home from "./pages/Welcome";
+import fire from './fire'
+import Login from './pages/Login'
+import "./APP.css";
+const App = () => {
+  const [user, setUser] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [hasAccount, setHasAccount] = useState(false);
 
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import LandingPage from './components/Landing';
-import Navigation from './components/Navigation';
-import Nav from './components/Nav';
-import SignUpPage from './components/SignUp';
-import SignInPage from './components/SignIn';
-import PasswordForgetPage from './components/PasswordForget';
-import AccountPage from './components/Account';
-import AdminPage from './components/Admin';
-import Home from './pages/Home';
-import NoMatch from './pages/NoMatch';
+  const clearInputs = () => {
+    setEmail('');
+    setPassword('');
+  }
 
+  const clearErrors = () => {
+    setEmailError('');
+    setPasswordError('');
+  }
 
-import * as ROUTES from './constants/routes';
-import { withAuthentication } from './components/Session';
+  const handleLogin = () => {
+    clearErrors();
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(err => {
+        switch (err.code) {
+          case "auth/invalid-email":
+          case "auth/user-disabled":
+          case "auth/user-not-found":
+            setEmailError(err.message);
+            break;
+          case "auth/wrong-password":
+            setPasswordError(err.message);
+            break;
+        }
+      });
+  };
 
-function App() {
+  const handleSignup = () => {
+    clearErrors();
+    fire
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(err => {
+        switch (err.code) {
+          case "auth/email-already-in-use":
+          case "auth/user-disabled":
+            setEmailError(err.message);
+            break;
+          case "auth/weak-password":
+            setPasswordError(err.message);
+            break;
+        }
+      });
+  };
+
+  const handleLogout = () => {
+    fire.auth().signOut();
+  };
+
+  const authListener = () => {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        clearInputs();
+        setUser(user);
+      } else {
+        setUser("")
+      }
+    });
+  };
+
+  useEffect(() => {
+    authListener();
+  }, []);
+
   return (
+<<<<<<< HEAD
     <Router>
     <div>
     <Nav/>
@@ -72,6 +133,45 @@ function App() {
   </Router>
   );
 }
+=======
+    <div className="App">
+      {user ? (
+        <Router>
+          <Navigationbar handleLogout={handleLogout} />
+          <Switch>
+            <Route exact path="/">
+            <Home />
+          </Route>
+            <Route exact path="/posts">
+              <UserHome />
+            </Route>
+            <Route exact path="/posts/:id">
+              <Detail />
+            </Route>
+            <Route>
+              <NoMatch />
+            </Route>
+          </Switch>
+        </Router>
+      ) : (
+          <Login
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            handleLogin={handleLogin}
+            handleSignup={handleSignup}
+            hasAccount={hasAccount}
+            setHasAccount={setHasAccount}
+            emailError={emailError}
+            passwordError={passwordError}
+          />
+        )}
+    </div>
+  );
+};
+
+>>>>>>> master
 export default App;
 
 
